@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AM-26 — Fiche technique · Amine Meliouh</title>
+  <meta name="description" content="Amine Meliouh, présenté comme la fiche technique d'un composant : brochage, schéma fonctionnel, caractéristiques et circuits d'application.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect x='14' y='6' width='36' height='52' rx='3' fill='%2315130f'/><g fill='%2315130f'><rect x='4' y='12' width='8' height='4'/><rect x='4' y='24' width='8' height='4'/><rect x='4' y='36' width='8' height='4'/><rect x='4' y='48' width='8' height='4'/><rect x='52' y='12' width='8' height='4'/><rect x='52' y='24' width='8' height='4'/><rect x='52' y='36' width='8' height='4'/><rect x='52' y='48' width='8' height='4'/></g><circle cx='32' cy='12' r='3' fill='%235b3fd6'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="sheet">
+
+    <!-- ===== En-tête de document ===== -->
+    <header class="doc-head">
+      <div class="brand"><span class="chip-ico"></span>AM-26</div>
+      <div class="doc-meta">
+        <span>FICHE TECHNIQUE</span><span>Rév. 2.0</span><span>Novembre 2026</span>
+      </div>
+      <nav class="doc-nav">
+        <a href="#s1">1 Brochage</a><a href="#s2">2 Schéma</a><a href="#s3">3 Caract.</a><a href="#s4">4 Applications</a><a href="#s5">5 Chrono.</a><a href="#s6">6 Commande</a>
+      </nav>
+    </header>
+
+    <!-- ===== Bloc titre ===== -->
+    <section class="title-block">
+      <div class="title-left">
+        <p class="part-no">Réf. AM-26-UQAM · Boîtier DIP-20</p>
+        <h1>AMINE<br>MELIOUH</h1>
+        <p class="subtitle">Unité de développement full-stack<br>à pilotage IA, avec fondamentaux bas niveau</p>
+        <div class="status-line"><span class="led"></span>STATUT : <b>EN PRODUCTION</b> · disponible pour stages et projets</div>
+      </div>
+      <div class="title-right">
+        <div class="box">
+          <h2 class="box-title">Caractéristiques principales</h2>
+          <ul class="features">
+            <li>Pile complète : du registre <b>RISC-V</b> jusqu'à l'API <b>LLM</b></li>
+            <li>Architecture pilotée par l'humain, code généré par l'IA</li>
+            <li>Mode <b>UQAM</b> : code 100 % manuel, sans assistance</li>
+            <li>Back-end Node.js / Express avec limitation de débit intégrée</li>
+            <li>Modélisation de données MCD → MLD → Oracle</li>
+            <li>Traduction Quenya → Tengwar intégrée (si, vraiment)</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h2 class="box-title">Applications</h2>
+          <ul class="apps">
+            <li>Chatbots pour petites entreprises</li>
+            <li>Outils web et API REST</li>
+            <li>Bases de données relationnelles</li>
+            <li>Programmation système</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 1. Brochage ===== -->
+    <section id="s1" class="sec">
+      <div class="sec-head"><span class="sec-no">1</span><h2>Configuration des broches</h2><span class="sec-rule"></span></div>
+      <div class="pinout">
+        <figure class="fig">
+          <svg id="chip" viewBox="0 0 560 440" role="img" aria-label="Schéma de brochage : chaque broche est une compétence"></svg>
+          <figcaption>Fig. 1 — Brochage DIP-20, vue de dessus. Survole ou touche une broche.</figcaption>
+        </figure>
+        <div class="pin-info">
+          <table class="tbl" id="pinTable">
+            <thead><tr><th>Broche</th><th>Nom</th><th>Type</th><th>Description</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 2. Schéma fonctionnel ===== -->
+    <section id="s2" class="sec">
+      <div class="sec-head"><span class="sec-no">2</span><h2>Schéma fonctionnel</h2><span class="sec-rule"></span></div>
+      <p class="prose">Le composant fonctionne selon deux modes, choisis par la broche <code>MODE</code>. En mode <b>PERSO</b>, l'unité de contrôle (moi) prend toutes les décisions : besoin, architecture, design, priorités, validation. Elle envoie ses consignes à une unité d'exécution externe (l'IA), qui écrit le code. En mode <b>UQAM</b>, l'unité d'exécution est déconnectée : tout le code est écrit à la main.</p>
+
+      <div class="mode-switch" role="group" aria-label="Choisir le mode">
+        <span class="sw-label">MODE =</span>
+        <button class="sw on" data-mode="perso" aria-pressed="true">PERSO</button>
+        <button class="sw" data-mode="uqam" aria-pressed="false">UQAM</button>
+        <span class="sw-state" id="swState">0 · IA connectée</span>
+      </div>
+
+      <figure class="fig block-fig" id="blockFig">
+        <svg viewBox="0 0 760 330" role="img" aria-label="Schéma fonctionnel : unité de contrôle et unité d'exécution">
+          <defs>
+            <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="currentColor"/></marker>
+            <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="currentColor" stroke-width="1.2" opacity=".35"/></pattern>
+          </defs>
+
+          <!-- Entrée -->
+          <g class="blk">
+            <rect x="20" y="135" width="120" height="60"/>
+            <text x="80" y="160" class="b-t">ENTRÉE</text>
+            <text x="80" y="178" class="b-s">besoin · idée</text>
+          </g>
+          <path class="wire" d="M140 165 H215" marker-end="url(#arr)"/>
+
+          <!-- Contrôle -->
+          <g class="blk ctrl">
+            <rect x="215" y="70" width="230" height="190"/>
+            <text x="330" y="96" class="b-t">UNITÉ DE CONTRÔLE</text>
+            <text x="330" y="114" class="b-s accent">« AMINE »</text>
+            <text x="235" y="146" class="b-l">▸ besoin et produit</text>
+            <text x="235" y="166" class="b-l">▸ architecture</text>
+            <text x="235" y="186" class="b-l">▸ design et UX</text>
+            <text x="235" y="206" class="b-l">▸ tests et validation</text>
+            <text x="235" y="236" class="b-l only-uqam accent">▸ écriture du code (100 %)</text>
+          </g>
+
+          <!-- IA -->
+          <g class="blk ai">
+            <rect x="540" y="30" width="190" height="110"/>
+            <rect x="540" y="30" width="190" height="110" class="hatch" fill="url(#hatch)"/>
+            <text x="635" y="58" class="b-t">UNITÉ D'EXÉCUTION</text>
+            <text x="635" y="76" class="b-s">« IA »</text>
+            <text x="635" y="104" class="b-l c">écriture du code</text>
+            <text x="635" y="122" class="b-l c">itérations</text>
+            <text x="635" y="92" class="b-off">HORS CIRCUIT</text>
+          </g>
+          <path class="wire bus ai-wire" id="busOut" d="M445 95 H500 V65 H540" marker-end="url(#arr)"/>
+          <text x="492" y="56" class="w-l ai-wire">consignes</text>
+          <path class="wire bus ai-wire" id="busIn" d="M540 115 H510 V135 H445" marker-end="url(#arr)"/>
+          <text x="492" y="152" class="w-l ai-wire">code → revue</text>
+
+          <!-- Sortie -->
+          <path class="wire" d="M445 220 H560" marker-end="url(#arr)"/>
+          <g class="blk">
+            <rect x="560" y="190" width="170" height="60"/>
+            <text x="645" y="215" class="b-t">SORTIE</text>
+            <text x="645" y="233" class="b-s">logiciel livré</text>
+          </g>
+
+          <!-- Broche MODE -->
+          <path class="wire thin" d="M330 300 V260"/>
+          <text x="330" y="318" class="w-l">MODE</text>
+
+          <!-- Signaux animés -->
+          <circle r="4" class="sig ai-wire"><animateMotion dur="2.2s" repeatCount="indefinite"><mpath href="#busOut"/></animateMotion></circle>
+          <circle r="4" class="sig ai-wire"><animateMotion dur="2.2s" begin="1.1s" repeatCount="indefinite"><mpath href="#busIn"/></animateMotion></circle>
+        </svg>
+        <figcaption>Fig. 2 — Schéma fonctionnel. L'IA ne prend aucune décision : elle exécute.</figcaption>
+      </figure>
+    </section>
+
+    <!-- ===== 3. Caractéristiques ===== -->
+    <section id="s3" class="sec">
+      <div class="sec-head"><span class="sec-no">3</span><h2>Caractéristiques</h2><span class="sec-rule"></span></div>
+      <p class="prose small">Valeurs mesurées sur les projets réels. T<sub>a</sub> = 22 °C, café nominal.</p>
+      <div class="tbl-wrap">
+        <table class="tbl spec">
+          <thead><tr><th>Paramètre</th><th>Symbole</th><th>Conditions</th><th>Min</th><th>Typ</th><th>Max</th><th>Unité</th></tr></thead>
+          <tbody>
+            <tr><td>Taille du serveur chatbot</td><td>L<sub>srv</sub></td><td>server.js</td><td>—</td><td>707</td><td>—</td><td>lignes</td></tr>
+            <tr><td>Pages explorées par crawl</td><td>N<sub>pages</sub></td><td>par entreprise</td><td>1</td><td>—</td><td>15</td><td>pages</td></tr>
+            <tr><td>Taille d'un chunk</td><td>C<sub>len</sub></td><td>découpage du texte</td><td>—</td><td>—</td><td>900</td><td>car.</td></tr>
+            <tr><td>Extraits envoyés au LLM</td><td>k</td><td>score &gt; 0</td><td>0</td><td>—</td><td>4</td><td>extraits</td></tr>
+            <tr><td>Température du modèle</td><td>T<sub>LLM</sub></td><td>Gemini 2.5 Flash</td><td>—</td><td>0.2</td><td>—</td><td>—</td></tr>
+            <tr><td>Débit accepté sur /chat</td><td>R<sub>chat</sub></td><td>fenêtre 60 s</td><td>—</td><td>—</td><td>20</td><td>req/min</td></tr>
+            <tr><td>Longueur d'un message</td><td>M<sub>len</sub></td><td>entrée utilisateur</td><td>1</td><td>—</td><td>500</td><td>car.</td></tr>
+            <tr><td>Glyphes Tengwar gérés</td><td>G</td><td>enum TengwarScript</td><td>—</td><td>51</td><td>—</td><td>glyphes</td></tr>
+            <tr><td>Fenêtre de recherche gloutonne</td><td>W</td><td>3 → 2 → 1</td><td>1</td><td>—</td><td>3</td><td>car.</td></tr>
+            <tr><td>Tables du schéma Oracle</td><td>N<sub>tab</sub></td><td>résidence pour aînés</td><td>—</td><td>17</td><td>—</td><td>tables</td></tr>
+            <tr><td>Code écrit à la main</td><td>η<sub>UQAM</sub></td><td>MODE = UQAM</td><td>100</td><td>100</td><td>100</td><td>%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===== 4. Circuits d'application ===== -->
+    <section id="s4" class="sec">
+      <div class="sec-head"><span class="sec-no">4</span><h2>Circuits d'application</h2><span class="sec-rule"></span></div>
+
+      <!-- 4.1 Chatbot -->
+      <article class="app">
+        <div class="app-head">
+          <h3><span>4.1</span> ChatBot IA pour petites entreprises</h3>
+          <span class="badge">MODE = PERSO · dirigé par moi, codé avec l'IA</span>
+        </div>
+        <div class="app-grid">
+          <div class="app-text">
+            <p>Plateforme multi-entreprises. Chaque entreprise donne l'URL de son site. Le serveur l'explore avec Cheerio, découpe le texte en extraits, garde les plus pertinents et les envoie à Gemini. Le modèle ne répond <b>qu'à partir de ce contexte</b>, et les infos « officielles » de l'entreprise passent avant le site.</p>
+            <p>Il comprend aussi un tableau de bord admin (re-scan, conversations, feedback 👍/👎), une limitation de débit, une validation des identifiants et un cache des réponses.</p>
+            <p class="stack">Node.js · Express 5 · Cheerio · Gemini · JSONL · JS</p>
+          </div>
+          <figure class="fig demo">
+            <div class="scope">
+              <div class="scope-steps" id="steps"><span>CRAWL</span><span>CHUNK</span><span>SCORE</span><span>LLM</span><span>OUT</span></div>
+              <div class="scope-log" id="chatLog"><div class="ln sys">&gt; boulangerie-demo connectée. Pose une question.</div></div>
+              <div class="scope-btns" id="chatBtns">
+                <button data-q="0">Quels sont vos horaires ?</button>
+                <button data-q="1">Prix d'un gâteau ?</button>
+                <button data-q="2">Vous livrez à Laval ?</button>
+              </div>
+            </div>
+            <figcaption>Fig. 4.1 — Réponse du système à une requête (simulation du vrai pipeline).</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <!-- 4.2 Tengwar -->
+      <article class="app">
+        <div class="app-head">
+          <h3><span>4.2</span> Traducteur Quenya → Tengwar</h3>
+          <span class="badge solid">MODE = UQAM · 100 % codé par moi</span>
+        </div>
+        <div class="app-grid">
+          <div class="app-text">
+            <p>TP de Programmation II en Java. Le programme translittère la langue elfique de Tolkien en commandes LaTeX Tengwar. Il repose sur un <code>enum</code> de 51 glyphes, une recherche gloutonne sur 3, puis 2, puis 1 caractère, l'ajout de TELCO ou ARA devant une voyelle initiale, et une exception <code>PasDuQuenyaException</code>.</p>
+            <p>La démo ci-contre est un port JavaScript fidèle de mon code Java.</p>
+            <p class="stack">Java · Enum · Exceptions · LaTeX</p>
+          </div>
+          <figure class="fig demo">
+            <div class="tw">
+              <div class="tw-in"><span>ENTRÉE&nbsp;›</span><input id="quenya" value="NAMARIE" autocomplete="off" spellcheck="false" aria-label="Mot en Quenya"></div>
+              <div class="tw-ex"><button>ELEN</button><button>ANAR</button><button>TELPE</button><button>hello</button></div>
+              <table class="tbl tw-tbl"><thead><tr><th>#</th><th>Séquence</th><th>Glyphe</th><th>Commande</th></tr></thead><tbody id="twBody"></tbody></table>
+              <pre class="tw-out" id="twOut"></pre>
+            </div>
+            <figcaption>Fig. 4.2 — Table de vérité de la translittération.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <!-- 4.3 Hanoi -->
+      <article class="app">
+        <div class="app-head">
+          <h3><span>4.3</span> Programmation RISC-V</h3>
+          <span class="badge solid">MODE = UQAM · 100 % codé par moi</span>
+        </div>
+        <div class="app-grid">
+          <div class="app-text">
+            <p>Cours d'organisation des ordinateurs : pile et conventions d'appel, récursion, chaînes, tableaux, bits, virgule flottante, le tout dans RARS. La démo montre la récursion des tours de Hanoï, avec prologue/épilogue et sauvegarde de <code>ra</code> et <code>s0–s3</code> sur la pile.</p>
+            <p class="stack">RISC-V · RARS · Récursion · Pile</p>
+          </div>
+          <figure class="fig demo">
+            <div class="hanoi-wrap">
+              <svg id="hanoi" viewBox="0 0 360 150" aria-label="Tours de Hanoï"></svg>
+              <div class="hanoi-ctrl">
+                <button id="hanoiRun" class="cmd">▶ jal hanoi</button>
+                <label>a0 = <input type="range" id="hanoiN" min="2" max="6" value="4"> <b id="hanoiNv">4</b></label>
+                <span class="regs">sp = <b id="sp">0x7fffeff0</b></span>
+              </div>
+              <pre class="hanoi-log" id="hanoiLog"></pre>
+            </div>
+            <figcaption>Fig. 4.3 — Exécution de hanoi(a0, 1, 3, 2). La pile descend de 40 octets par appel.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <!-- 4.4 / 4.5 -->
+      <div class="app-pair">
+        <article class="app">
+          <div class="app-head"><h3><span>4.4</span> Base de données d'une résidence pour aînés</h3><span class="badge solid">MODE = UQAM</span></div>
+          <p>TP de bases de données : MCD, puis MLD, puis normalisation, puis schéma Oracle avec 17 tables, des séquences et des triggers pour générer les identifiants.</p>
+          <svg class="er" viewBox="0 0 340 120" aria-hidden="true">
+            <g class="ent"><rect x="5" y="10" width="90" height="44"/><text x="50" y="27">AINE</text><text x="50" y="44" class="k">#id_aine</text></g>
+            <g class="ent"><rect x="125" y="66" width="90" height="44"/><text x="170" y="83">CHAMBRE</text><text x="170" y="100" class="k">#no_chambre</text></g>
+            <g class="ent"><rect x="245" y="10" width="90" height="44"/><text x="290" y="27">PREPOSE</text><text x="290" y="44" class="k">#matricule</text></g>
+            <path d="M95 32 H245"/><path d="M50 54 V88 H125"/><text x="170" y="26" class="card">0,N — 1,N</text>
+          </svg>
+          <p class="stack">Oracle · SQL Developer · MCD / MLD · Triggers</p>
+        </article>
+        <article class="app">
+          <div class="app-head"><h3><span>4.5</span> Conception orientée objet</h3><span class="badge solid">MODE = UQAM</span></div>
+          <p>Héritage (Véhicule → Voiture / Moto, Employé → Manager / Développeur), génériques avec <code>Conteneur&lt;T&gt;</code>, objets mathématiques (<code>Force2D</code>, <code>Rectangle</code>).</p>
+          <svg class="uml" viewBox="0 0 340 120" aria-hidden="true">
+            <g class="ent"><rect x="120" y="6" width="100" height="30"/><text x="170" y="26">Employe</text></g>
+            <g class="ent"><rect x="30" y="82" width="100" height="30"/><text x="80" y="102">Manager</text></g>
+            <g class="ent"><rect x="210" y="82" width="100" height="30"/><text x="260" y="102">Developpeur</text></g>
+            <path d="M80 82 V60 H260 V82"/><path d="M170 60 V46"/><path d="M162 46 L170 36 L178 46 Z" class="tri"/>
+          </svg>
+          <p class="stack">Héritage · Génériques · Polymorphisme · IntelliJ</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== 5. Chronogramme ===== -->
+    <section id="s5" class="sec">
+      <div class="sec-head"><span class="sec-no">5</span><h2>Chronogramme</h2><span class="sec-rule"></span></div>
+      <p class="prose small">Activité des signaux par session. Niveau haut = en cours.</p>
+      <figure class="fig">
+        <div class="timing-wrap"><svg id="timing" viewBox="0 0 760 300" role="img" aria-label="Chronogramme du parcours"></svg></div>
+        <figcaption>Fig. 5 — Parcours de l'été 2025 à l'automne 2026.</figcaption>
+      </figure>
+    </section>
+
+    <!-- ===== 6. Informations de commande ===== -->
+    <section id="s6" class="sec">
+      <div class="sec-head"><span class="sec-no">6</span><h2>Informations de commande</h2><span class="sec-rule"></span></div>
+      <div class="order">
+        <table class="tbl">
+          <thead><tr><th>Référence</th><th>Disponibilité</th><th>Configuration</th><th>Contact</th></tr></thead>
+          <tbody><tr>
+            <td><b>AM-26-UQAM</b></td>
+            <td>Stages, projets, collaborations</td>
+            <td>Montage en équipe ou en autonomie</td>
+            <td><a class="link" href="https://github.com/Tirou0" target="_blank" rel="noopener">github.com/Tirou0 ↗</a></td>
+          </tr></tbody>
+        </table>
+        <a class="order-btn" href="https://github.com/Tirou0" target="_blank" rel="noopener">Commander un échantillon →</a>
+      </div>
+
+      <h3 class="rev-title">Historique des révisions</h3>
+      <table class="tbl rev">
+        <thead><tr><th>Rév.</th><th>Date</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td>1.0</td><td>11/2026</td><td>Version « vitrine sombre ». <a class="link" href="../index.html">Voir la rév. 1.0 →</a></td></tr>
+          <tr><td>2.0</td><td>11/2026</td><td>Passage au format fiche technique. Ajout du mode UQAM.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <footer class="doc-foot">
+      <span>AM-26 · Amine Meliouh</span>
+      <span>Les spécifications peuvent évoluer sans préavis, surtout après un nouveau cours.</span>
+      <span>Conçu et dirigé par moi · codé avec l'IA</span>
+    </footer>
+  </div>
+
+  <script src="../js/tengwar.js"></script>
+  <script src="datasheet.js"></script>
+</body>
+</html>
