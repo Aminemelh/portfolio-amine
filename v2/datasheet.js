@@ -14,26 +14,26 @@
 
   /* ================= 1. Brochage ================= */
   const PINS = [
-    [1, "JAVA", "E/S", "POO : héritage, génériques, exceptions, enum"],
-    [2, "JS", "E/S", "JavaScript moderne, DOM, modules ES"],
-    [3, "NODE", "E/S", "Node.js, Express 5, API REST"],
-    [4, "SQL", "E/S", "Oracle, LDD / LMD, jointures, agrégats"],
-    [5, "RISCV", "E/S", "Assembleur, pile, conventions d'appel"],
-    [6, "LLM", "E", "Intégration de Gemini via le SDK OpenAI"],
-    [7, "RAG", "E", "Crawl, découpage, scoring, contexte"],
-    [8, "WEB", "E/S", "HTML, CSS, pages responsives"],
-    [9, "MODE", "E", "PERSO = IA connectée · UQAM = code 100 % manuel"],
-    [10, "GND", "ALIM", "Masse : rigueur, tests, validation"],
-    [11, "CLK", "E", "Horloge : les sessions à l'UQAM"],
-    [12, "GIT", "E/S", "Git et GitLab, travail en équipe"],
-    [13, "SHELL", "E/S", "Linux, Bash, fichiers et permissions"],
-    [14, "REGEX", "E/S", "Expressions régulières"],
-    [15, "UML", "S", "Visual Paradigm, MCD / MLD"],
-    [16, "IDE", "—", "IntelliJ IDEA, WebStorm, VS Code"],
-    [17, "VM", "—", "VirtualBox, environnements isolés"],
-    [18, "SEC", "E", "Limitation de débit, validation des entrées"],
-    [19, "UX", "S", "Design et expérience utilisateur"],
-    [20, "VCC", "ALIM", "Alimentation : café ☕"],
+    [1, "JAVA", "Java : le langage de mes cours, pour bien organiser un programme"],
+    [2, "JS", "JavaScript : rendre une page web interactive"],
+    [3, "NODE", "Créer des serveurs web (Node.js, Express)"],
+    [4, "SQL", "Concevoir et interroger des bases de données"],
+    [5, "RISCV", "Assembleur : parler directement au processeur"],
+    [6, "LLM", "Brancher une IA (Gemini) dans une application"],
+    [7, "RAG", "Faire répondre une IA avec des infos précises, sans qu'elle invente"],
+    [8, "WEB", "HTML et CSS : construire des pages qui marchent aussi sur mobile"],
+    [9, "MODE", "Perso : je dirige l'IA · Université : je code tout seul"],
+    [10, "GND", "La base : rigueur, tests, vérification"],
+    [11, "CLK", "Le rythme : mes sessions à l'UQAM"],
+    [12, "GIT", "Sauvegarder et partager du code, travailler en équipe"],
+    [13, "SHELL", "Utiliser Linux et la ligne de commande"],
+    [14, "REGEX", "Rechercher du texte avec des motifs précis"],
+    [15, "UML", "Dessiner le plan d'un logiciel avant de le coder"],
+    [16, "IDE", "Mes outils : IntelliJ, WebStorm, VS Code"],
+    [17, "VM", "Machines virtuelles : tester sans rien casser"],
+    [18, "SEC", "Sécurité : bloquer les abus et vérifier ce qu'on reçoit"],
+    [19, "UX", "Penser à l'utilisateur : design et facilité d'usage"],
+    [20, "VCC", "L'alimentation : le café ☕"],
   ];
   const chip = $("#chip"), pinBody = $("#pinTable tbody");
   const BX = 200, BW = 160, BY = 20, BH = 400, PITCH = 38;
@@ -46,7 +46,7 @@
   chip.append(svgEl("text", { class: "body-s", x: mid, y: 246 }, "2026 · RÉV 2.0"));
 
   const pinEls = new Map();
-  PINS.forEach(([n, name, type, desc]) => {
+  PINS.forEach(([n, name, desc]) => {
     const left = n <= 10;
     const idx = left ? n - 1 : 20 - n;
     const cy = BY + 31 + idx * PITCH;
@@ -57,7 +57,7 @@
     chip.append(g);
     const tr = document.createElement("tr");
     tr.dataset.pin = n;
-    tr.innerHTML = `<td>${n}</td><td>${esc(name)}</td><td>${esc(type)}</td><td>${esc(desc)}</td>`;
+    tr.innerHTML = `<td>${n}</td><td>${esc(name)}</td><td>${esc(desc)}</td>`;
     pinBody.append(tr);
     pinEls.set(n, { g, tr });
   });
@@ -79,7 +79,7 @@
     const uqam = b.dataset.mode === "uqam";
     $$(".sw").forEach((x) => { x.classList.toggle("on", x === b); x.setAttribute("aria-pressed", x === b); });
     blockFig.classList.toggle("mode-uqam", uqam);
-    swState.textContent = uqam ? "1 · IA déconnectée, code 100 % manuel" : "0 · IA connectée";
+    swState.textContent = uqam ? "IA débranchée : j'écris 100 % du code" : "L'IA écrit le code, je dirige";
   }));
 
   /* ================= 4.1 Chatbot ================= */
@@ -107,10 +107,11 @@
     btns.forEach((x) => (x.disabled = true));
     line("user", esc(qa.q));
     if (cache.has(qa.q)) {
-      step(4); line("sys", "&gt; cache hit · 0 appel au LLM"); line("bot", esc(qa.a));
+      step(4); line("sys", "&gt; Déjà demandé : réponse instantanée, sans redemander à l'IA"); line("bot", esc(qa.a));
     } else {
-      step(0); line("sys", "&gt; crawl : 5 pages, 0 script"); await sleep(450);
-      step(1); line("sys", "&gt; découpage : chunks de 900 car."); await sleep(400);
+      step(0); line("sys", "&gt; Je lis les 5 pages du site de la boulangerie…"); await sleep(450);
+      step(1); line("sys", "&gt; Je découpe le texte en petits morceaux…"); await sleep(400);
+      line("sys", "&gt; Je note chaque morceau selon son lien avec la question :");
       step(2);
       const max = Math.max(...qa.s);
       const ranked = SITE.map((c, i) => ({ c, s: qa.s[i] })).sort((x, y) => y.s - x.s);
@@ -120,7 +121,7 @@
         await sleep(120);
       }
       const kept = ranked.filter((r) => r.s > 0).slice(0, 4).length;
-      line("sys", `&gt; ${kept} extrait(s) envoyé(s) · gemini-2.5-flash · T=0.2`);
+      line("sys", `&gt; J'envoie les ${kept} meilleur(s) morceau(x) à l'IA (Gemini)…`);
       step(3); await sleep(700);
       step(4);
       await typeInto(line("bot", ""), qa.a);
@@ -216,15 +217,15 @@
 
   /* ================= 5. Chronogramme ================= */
   const T = $("#timing");
-  const COLS = ["É 2025", "A 2025", "H 2026", "É 2026", "A 2026"];
+  const COLS = ["Été 2025", "Aut. 2025", "Hiver 2026", "Été 2026", "Aut. 2026"];
   const SIGS = [
-    { name: "CLK", desc: "sessions", clk: true },
-    { name: "WEB", desc: "apprentissage web", hi: [[0, 5]] },
-    { name: "INF2120", desc: "Programmation II · Java", hi: [[2, 3]] },
-    { name: "CHATBOT", desc: "projet perso · avec l'IA", hi: [[2, 5]], acc: true },
-    { name: "INF1070", desc: "Systèmes · shell", hi: [[4, 5]] },
-    { name: "INF2171", desc: "Assembleur RISC-V", hi: [[4, 5]] },
-    { name: "INF3080", desc: "Bases de données", hi: [[4, 5]] },
+    { name: "TEMPS", desc: "les sessions", clk: true },
+    { name: "WEB", desc: "j'apprends le web", hi: [[0, 5]] },
+    { name: "JAVA", desc: "cours Programmation II", hi: [[2, 3]] },
+    { name: "CHATBOT", desc: "projet perso avec l'IA", hi: [[2, 5]], acc: true },
+    { name: "LINUX", desc: "cours Systèmes", hi: [[4, 5]] },
+    { name: "ASSEMBLEUR", desc: "cours RISC-V", hi: [[4, 5]] },
+    { name: "DONNÉES", desc: "cours Bases de données", hi: [[4, 5]] },
   ];
   const X0 = 170, X1 = 745, CW = (X1 - X0) / COLS.length, Y0 = 46, RH = 36, LO = 26, HI = 8, SL = 5;
   COLS.forEach((c, i) => {
