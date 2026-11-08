@@ -179,7 +179,7 @@
 
   /* ---------- Démo Hanoï ---------- */
   const pegs = $$("#hanoi .peg"), hLog = $("#hanoiLog"), nIn = $("#hanoiN"), nOut = $("#hanoiNv"), run = $("#hanoiRun");
-  const colors = ["#a78bfa", "#818cf8", "#60a5fa", "#22d3ee", "#2dd4bf", "#f472b6"];
+  const colors = ["#ede9fe", "#ddd6fe", "#c4b5fd", "#a78bfa", "#8b5cf6", "#7c3aed"];
   let running = false;
   function setupHanoi(n) {
     pegs.forEach((p) => (p.innerHTML = ""));
