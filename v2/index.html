@@ -21,7 +21,7 @@
         <span>FICHE TECHNIQUE</span><span>Rév. 2.1</span><span>Novembre 2026</span>
       </div>
       <nav class="doc-nav">
-        <a href="#s1">1 Compétences</a><a href="#s2">2 Méthode</a><a href="#s3">3 En chiffres</a><a href="#s4">4 Projets</a><a href="#s5">5 Parcours</a><a href="#s6">6 Contact</a>
+        <a href="#s1">1 Compétences</a><a href="#s2">2 Méthode</a><a href="#s3">3 Essaie-moi</a><a href="#s4">4 Projets</a><a href="#s5">5 Parcours</a><a href="#s6">6 Contact</a>
       </nav>
     </header>
 
@@ -153,23 +153,25 @@
       </figure>
     </section>
 
-    <!-- ===== 3. Caractéristiques ===== -->
+    <!-- ===== 3. Banc d'essai ===== -->
     <section id="s3" class="sec">
-      <div class="sec-head"><span class="sec-no">3</span><h2>En chiffres <small>caractéristiques</small></h2><span class="sec-rule"></span></div>
-      <div class="plain"><span class="tag">EN CLAIR</span> Quelques chiffres réels tirés de mes projets, et ce qu'ils veulent dire concrètement.</div>
-      <div class="tbl-wrap">
-        <table class="tbl spec">
-          <thead><tr><th>Valeur</th><th>Ce qui est mesuré</th><th>Ce que ça veut dire</th></tr></thead>
-          <tbody>
-            <tr><td>707</td><td>lignes de code du serveur du chatbot</td><td>Un vrai projet complet, pas un exercice de 50 lignes.</td></tr>
-            <tr><td>15</td><td>pages lues sur le site d'une entreprise</td><td>Le chatbot lit tout seul le site pour apprendre à répondre.</td></tr>
-            <tr><td>4</td><td>extraits du site donnés à l'IA</td><td>L'IA ne répond qu'avec les infos de l'entreprise, elle n'invente rien.</td></tr>
-            <tr><td>20 / min</td><td>messages autorisés par personne</td><td>Protection contre les robots et les abus.</td></tr>
-            <tr><td>51</td><td>lettres elfiques gérées</td><td>Le traducteur connaît tout l'alphabet Tengwar de Tolkien.</td></tr>
-            <tr><td>17</td><td>tables dans la base de données</td><td>Toute la gestion d'une résidence pour aînés : chambres, personnel, paiements…</td></tr>
-            <tr><td>100 %</td><td>du code écrit à la main à l'université</td><td>Aucune IA pour les travaux de cours.</td></tr>
-          </tbody>
-        </table>
+      <div class="sec-head"><span class="sec-no">3</span><h2>Essaie-moi <small>banc d'essai</small></h2><span class="sec-rule"></span></div>
+      <div class="plain"><span class="tag">EN CLAIR</span> Choisis une idée de projet ci-dessous. Je te montre comment je m'y prendrais, étape par étape : ce que je décide moi-même, et ce que je confie à l'IA.</div>
+
+      <div class="bench">
+        <div class="bench-in">
+          <p class="bench-label">ENTRÉE › choisis un projet</p>
+          <div class="bench-btns" id="benchBtns">
+            <button data-p="resto" class="on"><b>🍝 Un site pour un restaurant</b><span>menu, horaires, réservations</span></button>
+            <button data-p="rdv"><b>✂️ La prise de rendez-vous d'un salon</b><span>agenda en ligne, rappels</span></button>
+            <button data-p="garage"><b>🔧 Un chatbot pour un garage</b><span>répondre aux clients 24 h/24</span></button>
+          </div>
+        </div>
+        <div class="bench-out">
+          <p class="bench-label">SORTIE › mon plan <span id="benchTime"></span></p>
+          <ol class="bench-steps" id="benchSteps"></ol>
+          <p class="bench-tools" id="benchTools"></p>
+        </div>
       </div>
     </section>
 

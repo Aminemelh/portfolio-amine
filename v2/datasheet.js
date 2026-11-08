@@ -82,6 +82,55 @@
     swState.textContent = uqam ? "IA débranchée : j'écris 100 % du code" : "L'IA écrit le code, je dirige";
   }));
 
+  /* ================= 3. Banc d'essai ================= */
+  const ME = ["me", "MOI"], BOTH = ["ai", "L'IA · guidée par moi"];
+  const PLANS = {
+    resto: {
+      time: "≈ 1 à 2 semaines",
+      steps: [
+        [ME, "Comprendre le besoin", "Je rencontre le restaurateur : ses clients, son ambiance, ce qu'il veut qu'on puisse faire en ligne."],
+        [ME, "Dessiner le site", "Je choisis les pages (accueil, menu, réservation, contact), les couleurs et la façon de naviguer, d'abord sur mobile."],
+        [ME, "Préparer les données", "J'organise le menu et les réservations dans une base de données simple, facile à modifier par le restaurateur."],
+        [BOTH, "Écrire le code", "Je donne mes consignes précises, page par page. L'IA écrit le code et je relis chaque partie."],
+        [ME, "Tester et livrer", "Je teste sur téléphone et ordinateur, je corrige, puis je mets le site en ligne et je montre au restaurateur comment changer son menu."],
+      ],
+      tools: "HTML · CSS · JavaScript · Node.js · SQL",
+    },
+    rdv: {
+      time: "≈ 2 à 3 semaines",
+      steps: [
+        [ME, "Comprendre le besoin", "Combien d'employés, quels services, combien de temps dure chaque rendez-vous, comment annuler."],
+        [ME, "Prévoir les cas difficiles", "Deux clients sur le même créneau, un employé malade, une annulation de dernière minute : je décide des règles."],
+        [ME, "Concevoir la base de données", "Clients, employés, services, créneaux : je dessine le plan des tables, comme pour mon projet de résidence."],
+        [BOTH, "Écrire le code", "Agenda en ligne, formulaire de réservation, e-mail de rappel. L'IA code à partir de mon plan."],
+        [ME, "Sécuriser et livrer", "Je vérifie qu'on ne peut pas réserver n'importe quoi ni voir les données des autres, puis je mets en ligne."],
+      ],
+      tools: "Node.js · Express · SQL · e-mails automatiques",
+    },
+    garage: {
+      time: "≈ 1 semaine",
+      steps: [
+        [ME, "Lister les vraies questions", "Je récupère les questions que les clients posent le plus : horaires, prix d'une vidange, délais, rendez-vous."],
+        [ME, "Définir les limites", "Le chatbot ne doit jamais inventer un prix. S'il ne sait pas, il propose d'appeler le garage."],
+        [BOTH, "Réutiliser mon chatbot", "Je repars de mon ChatBot IA (projet 4.1) : il lit le site du garage et répond avec ses infos."],
+        [ME, "Tester avec de vraies questions", "Je le piège avec des questions difficiles et j'ajuste jusqu'à ce que les réponses soient fiables."],
+        [ME, "Installer et suivre", "Une ligne de code à ajouter sur le site du garage, puis je surveille les avis 👍/👎 des clients."],
+      ],
+      tools: "Mon ChatBot IA · Gemini · Node.js",
+    },
+  };
+  const bSteps = $("#benchSteps"), bTools = $("#benchTools"), bTime = $("#benchTime"), bBtns = $$("#benchBtns button");
+  function showPlan(key) {
+    const p = PLANS[key];
+    bBtns.forEach((b) => b.classList.toggle("on", b.dataset.p === key));
+    bSteps.innerHTML = p.steps.map(([w, t, d], i) =>
+      `<li style="animation-delay:${i * 90}ms"><div><b>${esc(t)}</b><p>${esc(d)}</p></div><span class="who ${w[0]}">${esc(w[1])}</span></li>`).join("");
+    bTools.innerHTML = `<b>Outils :</b> ${esc(p.tools)}`;
+    bTime.textContent = p.time;
+  }
+  bBtns.forEach((b) => b.addEventListener("click", () => showPlan(b.dataset.p)));
+  showPlan("resto");
+
   /* ================= 4.1 Chatbot ================= */
   const SITE = [
     "Horaires : du mardi au samedi de 7h à 18h, le dimanche de 8h à 13h. Fermé le lundi.",
