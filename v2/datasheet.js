@@ -112,7 +112,7 @@
       steps: [
         [ME, "Lister les vraies questions", "Je récupère les questions que les clients posent le plus : horaires, prix d'une vidange, délais, rendez-vous."],
         [ME, "Définir les limites", "Le chatbot ne doit jamais inventer un prix. S'il ne sait pas, il propose d'appeler le garage."],
-        [BOTH, "Réutiliser mon chatbot", "Je repars de mon ChatBot IA (projet 4.1) : il lit le site du garage et répond avec ses infos."],
+        [BOTH, "Réutiliser mon chatbot", "Je repars de Novyxs, mon chatbot (projet 4.1) : j'y entre les questions/réponses du garage, il lit aussi son site et répond avec ses infos."],
         [ME, "Tester avec de vraies questions", "Je le piège avec des questions difficiles et j'ajuste jusqu'à ce que les réponses soient fiables."],
         [ME, "Installer et suivre", "Une ligne de code à ajouter sur le site du garage, puis je surveille les avis 👍/👎 des clients."],
       ],
@@ -140,7 +140,7 @@
     "Viennoiseries du jour : croissants, pains au chocolat, chaussons.",
   ];
   const QA = [
-    { q: "Quels sont vos horaires ?", s: [5, 0, 1, 0, 1], a: "Ouvert du mardi au samedi de 7h à 18h, le dimanche de 8h à 13h. Fermé le lundi." },
+    { q: "Quels sont vos horaires ?", faq: "Q : Horaires ? → R : Mar–sam 7h–18h, dim 8h–13h, fermé lundi.", a: "Ouvert du mardi au samedi de 7h à 18h, le dimanche de 8h à 13h. Fermé le lundi." },
     { q: "Prix d'un gâteau d'anniversaire ?", s: [0, 6, 0, 1, 1], a: "32 $ pour 6 parts, 48 $ pour 10 parts. À commander 48 h à l'avance." },
     { q: "Vous livrez à Laval ?", s: [0, 0, 1, 0, 0], a: "Je n'ai pas cette information. Contactez la boulangerie au 514 555-0199." },
   ];
@@ -158,8 +158,19 @@
     if (cache.has(qa.q)) {
       step(4); line("sys", "&gt; Déjà demandé : réponse instantanée, sans redemander à l'IA"); line("bot", esc(qa.a));
     } else {
-      step(0); line("sys", "&gt; Je lis les 5 pages du site de la boulangerie…"); await sleep(450);
-      step(1); line("sys", "&gt; Je découpe le texte en petits morceaux…"); await sleep(400);
+      step(0); line("sys", "&gt; Je regarde d'abord les questions/réponses écrites par la boulangerie…"); await sleep(550);
+      if (qa.faq) {
+        line("score", `<b>[✓ trouvé]</b> ${esc(qa.faq)}`);
+        line("sys", "&gt; Réponse officielle trouvée : elle passe en priorité. J'envoie à l'IA (Gemini)…");
+        step(3); await sleep(700); step(4);
+        await typeInto(line("bot", ""), qa.a);
+        cache.add(qa.q);
+        btns.forEach((x) => (x.disabled = false));
+        setTimeout(() => step(-1), 1000);
+        return;
+      }
+      line("score", "<b>[✗ rien]</b> aucune question/réponse ne correspond");
+      step(1); line("sys", "&gt; Je cherche donc sur le site : je le découpe en petits morceaux…"); await sleep(450);
       line("sys", "&gt; Je note chaque morceau selon son lien avec la question :");
       step(2);
       const max = Math.max(...qa.s);

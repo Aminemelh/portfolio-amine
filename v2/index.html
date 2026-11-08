@@ -183,19 +183,19 @@
       <!-- 4.1 Chatbot -->
       <article class="app">
         <div class="app-head">
-          <h3><span>4.1</span> ChatBot IA pour petites entreprises</h3>
+          <h3><span>4.1</span> Novyxs, un chatbot IA pour les entreprises</h3>
           <span class="badge">MODE = PERSO · dirigé par moi, codé avec l'IA</span>
         </div>
         <div class="app-grid">
           <div class="app-text">
             <div class="plain"><span class="tag">EN CLAIR</span> Un assistant qui répond aux questions des clients sur le site d'un commerce, 24 h sur 24, à partir des vraies infos du commerce. Il ne raconte pas n'importe quoi : s'il ne sait pas, il le dit.</div>
-            <p><b>Comment ça marche :</b> le commerce donne l'adresse de son site. Mon programme lit le site, le découpe en petits morceaux et garde les plus utiles pour chaque question. L'IA (Gemini) répond ensuite uniquement avec ces morceaux.</p>
-            <p>Le commerçant a aussi un tableau de bord pour voir les conversations et les avis des clients 👍/👎.</p>
+            <p><b>Comment ça marche :</b> l'entreprise a deux façons de nourrir son chatbot. Elle peut écrire elle-même ses <b>questions et réponses</b>, qui passent toujours en priorité. Et elle peut donner l'adresse de son site : mon programme le lit, le découpe en petits morceaux et garde les plus utiles pour chaque question. L'IA (Gemini) répond ensuite uniquement avec ces informations.</p>
+            <p>L'entreprise a aussi un tableau de bord pour voir les conversations et les avis des clients 👍/👎. Le chatbot est en ligne : <b>c'est lui qui répond dans la bulle 💬 en bas à droite de cette page.</b></p>
             <p class="stack">Node.js · Express 5 · Cheerio · Gemini · JSONL · JS</p>
           </div>
           <figure class="fig demo">
             <div class="scope">
-              <div class="scope-steps" id="steps"><span>LIRE</span><span>DÉCOUPER</span><span>TRIER</span><span>IA</span><span>RÉPONSE</span></div>
+              <div class="scope-steps" id="steps"><span>Q&amp;R</span><span>SITE</span><span>TRIER</span><span>IA</span><span>RÉPONSE</span></div>
               <div class="scope-log" id="chatLog"><div class="ln sys">&gt; Démo : chatbot d'une boulangerie. Clique sur une question ↓</div></div>
               <div class="scope-btns" id="chatBtns">
                 <button data-q="0">Quels sont vos horaires ?</button>
@@ -332,5 +332,13 @@
 
   <script src="../js/tengwar.js"></script>
   <script src="datasheet.js"></script>
+
+  <!-- Chatbot Novyxs -->
+  <script>
+    window.CHATBOT_API_URL = "https://chatbot-production-3a9d.up.railway.app/chat";
+    window.CHATBOT_COMPANY_ID = "Amine";
+  </script>
+  <script src="https://chatbot-production-3a9d.up.railway.app/chatbot.js"></script>
+  <!-- /Chatbot Novyxs -->
 </body>
 </html>
