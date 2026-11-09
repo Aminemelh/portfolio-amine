@@ -4,13 +4,13 @@ Site vitrine personnel : projets, compétences et parcours.
 HTML, CSS et JavaScript purs, sans framework ni étape de build.
 
 ## Démos interactives
-- **ChatBot IA** : simulation du pipeline crawl → chunks → score → Gemini → réponse.
+- **Novyxs (chatbot IA)** : simulation du pipeline questions/réponses → lecture du site → tri → Gemini → réponse, plus le vrai chatbot en bas de page.
 - **Traducteur Quenya → Tengwar** : port JavaScript de mon TP Java (`js/tengwar.js`).
 - **Tours de Hanoï** : visualisation de la récursion étudiée en assembleur RISC-V.
 
-## Deux versions
-- `index.html` : rév. 1.0, la vitrine sombre (tag Git `v1`).
-- `v2/index.html` : rév. 2.0, le portfolio présenté comme la fiche technique d'un composant « AM-26 » (brochage, schéma fonctionnel avec un mode PERSO / UQAM, caractéristiques, chronogramme).
+## Versions
+- `index.html` : rév. 2.1, le site principal, présenté comme la fiche technique d'un composant « AM-26 ».
+- `v1/index.html` : rév. 1.0, l'ancienne vitrine sombre (tag Git `v1`).
 
 ## Lancer en local
 Ouvrir `index.html` dans un navigateur, ou bien :
@@ -19,12 +19,13 @@ Ouvrir `index.html` dans un navigateur, ou bien :
 npx serve .
 ```
 
-(ou l'extension Live Server de VS Code / le bouton navigateur d'IntelliJ).
+(ou le bouton navigateur d'IntelliJ).
 
 ## Structure
 ```
-index.html
+index.html          site principal (v2)
 css/style.css
-js/main.js      animations et démos
-js/tengwar.js   traducteur Quenya → Tengwar
+js/datasheet.js     démos et interactions
+js/tengwar.js       traducteur Quenya → Tengwar (partagé)
+v1/                 ancienne version
 ```

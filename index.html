@@ -3,271 +3,342 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Amine Meliouh — Développeur</title>
-  <meta name="description" content="Portfolio d'Amine Meliouh : étudiant en informatique à l'UQAM, développeur full-stack, IA, Java, SQL et assembleur RISC-V.">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%23a78bfa'/><stop offset='1' stop-color='%2322d3ee'/></linearGradient></defs><rect width='64' height='64' rx='16' fill='%230b0b14'/><text x='50%' y='58%' text-anchor='middle' dominant-baseline='middle' font-family='Arial' font-weight='800' font-size='34' fill='url(%23g)'>AM</text></svg>">
+  <title>AM-26 — Fiche technique · Amine Meliouh</title>
+  <meta name="description" content="Amine Meliouh, présenté comme la fiche technique d'un composant : brochage, schéma fonctionnel, caractéristiques et circuits d'application.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect x='14' y='6' width='36' height='52' rx='3' fill='%2315130f'/><g fill='%2315130f'><rect x='4' y='12' width='8' height='4'/><rect x='4' y='24' width='8' height='4'/><rect x='4' y='36' width='8' height='4'/><rect x='4' y='48' width='8' height='4'/><rect x='52' y='12' width='8' height='4'/><rect x='52' y='24' width='8' height='4'/><rect x='52' y='36' width='8' height='4'/><rect x='52' y='48' width='8' height='4'/></g><circle cx='32' cy='12' r='3' fill='%235b3fd6'/></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <canvas id="stars" aria-hidden="true"></canvas>
-  <div class="aurora" aria-hidden="true"><span></span><span></span><span></span></div>
-  <div class="grain" aria-hidden="true"></div>
-  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="sheet">
 
-  <header class="nav">
-    <a href="#top" class="logo">AM<span>.</span></a>
-    <nav>
-      <a href="#projets">Projets</a>
-      <a href="#methode">Méthode</a>
-      <a href="#competences">Compétences</a>
-      <a href="#parcours">Parcours</a>
-      <a href="#contact" class="nav-cta">Contact</a>
-    </nav>
-  </header>
-
-  <main id="top">
-    <!-- ================= HERO ================= -->
-    <section class="hero">
-      <div class="hero-text">
-        <p class="eyebrow reveal"><span class="dot"></span> Étudiant en informatique · UQAM</p>
-        <h1 class="reveal">Salut, moi c'est<br><span class="grad">Amine Meliouh.</span></h1>
-        <p class="lead reveal">Je construis des outils qui <span class="typed" id="typed">parlent aux clients</span><span class="caret">|</span></p>
-        <p class="sub reveal">Du registre RISC-V jusqu'à l'API qui appelle un LLM : j'aime comprendre chaque couche, puis en faire quelque chose d'utile.</p>
-        <div class="hero-cta reveal">
-          <a href="#projets" class="btn btn-primary">Voir mes projets <span>→</span></a>
-          <a href="#contact" class="btn btn-ghost">Me contacter</a>
-        </div>
+    <!-- ===== En-tête de document ===== -->
+    <header class="doc-head">
+      <div class="brand"><span class="chip-ico"></span>AM-26</div>
+      <div class="doc-meta">
+        <span>FICHE TECHNIQUE</span><span>Rév. 2.1</span><span>Novembre 2026</span>
       </div>
+      <nav class="doc-nav">
+        <a href="#s1">1 Compétences</a><a href="#s2">2 Méthode</a><a href="#s3">3 Essaie-moi</a><a href="#s4">4 Projets</a><a href="#s5">5 Parcours</a><a href="#s6">6 Contact</a>
+      </nav>
+    </header>
 
-      <div class="terminal reveal tilt" aria-label="Présentation façon terminal">
-        <div class="term-bar"><i></i><i></i><i></i><span>amine@uqam ~ zsh</span></div>
-        <pre class="term-body" id="term"></pre>
+    <!-- ===== Bloc titre ===== -->
+    <section class="title-block">
+      <div class="title-left">
+        <p class="part-no">Réf. AM-26-UQAM · Boîtier DIP-20</p>
+        <h1>AMINE<br>MELIOUH</h1>
+        <p class="subtitle">Étudiant en informatique à l'UQAM.<br>Je crée des sites, des applications et des outils d'IA.</p>
+        <div class="plain intro">
+          <b>Comment lire cette page</b>
+          Ce site est présenté comme la fiche technique d'une puce électronique, le document qui décrit ce qu'un composant sait faire. Ici, le composant, c'est moi. Pas besoin de s'y connaître : chaque section a un encadré <span class="tag">EN CLAIR</span> qui explique tout simplement.
+        </div>
+        <div class="status-line"><span class="led"></span>STATUT : <b>EN PRODUCTION</b> · disponible pour stages et projets</div>
+      </div>
+      <div class="title-right">
+        <div class="box">
+          <h2 class="box-title">Caractéristiques principales</h2>
+          <ul class="features">
+            <li>Je comprends l'informatique <b>de bout en bout</b>, du processeur jusqu'à l'IA</li>
+            <li>Sur mes projets perso, <b>je décide de tout</b> et l'IA écrit le code</li>
+            <li>À l'université, <b>j'écris tout le code moi-même</b></li>
+            <li>Je crée des serveurs web sécurisés</li>
+            <li>Je conçois des bases de données</li>
+            <li>Je sais même traduire l'elfique de Tolkien (si, vraiment)</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h2 class="box-title">Applications</h2>
+          <ul class="apps">
+            <li>Chatbots pour petites entreprises</li>
+            <li>Outils web et API REST</li>
+            <li>Bases de données relationnelles</li>
+            <li>Programmation système</li>
+          </ul>
+        </div>
       </div>
     </section>
 
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee-track">
-        <span>Java</span><span>JavaScript</span><span>Node.js</span><span>Express</span><span>SQL · Oracle</span><span>RISC-V</span><span>Gemini API</span><span>RAG</span><span>Git</span><span>Linux / Bash</span><span>UML</span><span>Regex</span>
-        <span>Java</span><span>JavaScript</span><span>Node.js</span><span>Express</span><span>SQL · Oracle</span><span>RISC-V</span><span>Gemini API</span><span>RAG</span><span>Git</span><span>Linux / Bash</span><span>UML</span><span>Regex</span>
-      </div>
-    </div>
-
-    <!-- ================= PROJETS ================= -->
-    <section id="projets" class="section">
-      <div class="section-head reveal">
-        <p class="kicker">01 — Projets</p>
-        <h2>Ce que j'ai construit</h2>
-        <p>Chaque projet est jouable directement ici. Clique, tape, teste.</p>
-      </div>
-
-      <!-- Projet phare : chatbot -->
-      <article class="project featured reveal">
-        <div class="project-info">
-          <div class="tag-row"><span class="pill pill-hot">Projet phare</span><span class="pill">IA · Full-stack</span><span class="pill pill-ai">✦ Dirigé par moi · codé avec l'IA</span></div>
-          <h3>ChatBot IA pour petites entreprises</h3>
-          <p>Une plateforme <strong>multi-entreprises</strong> : chaque entreprise colle l'URL de son site, le serveur l'explore, le découpe en morceaux de texte et sert un chatbot intégrable en une ligne de JavaScript. Les réponses viennent <strong>uniquement</strong> du contenu de l'entreprise, avec des infos « officielles » prioritaires sur le site.</p>
-          <ul class="feature-list">
-            <li><b>Crawler</b> avec Cheerio : jusqu'à 15 pages, liens internes suivis, scripts retirés</li>
-            <li><b>Retrieval maison</b> : chunks de 900 caractères + score par mots-clés, top 4 envoyés au modèle</li>
-            <li><b>Gemini 2.5 Flash</b> via le SDK OpenAI, température 0.2, garde-fous anti-hallucination</li>
-            <li><b>Admin & dashboard</b> : connexion, re-scan, historique des conversations, feedback 👍/👎</li>
-            <li><b>Sécurité</b> : rate-limit 20 req/min, IDs validés par regex, cache des réponses</li>
-          </ul>
-          <div class="stack"><span>Node.js</span><span>Express 5</span><span>Cheerio</span><span>Gemini</span><span>JSONL</span><span>Vanilla JS</span></div>
+    <!-- ===== 1. Brochage ===== -->
+    <section id="s1" class="sec">
+      <div class="sec-head"><span class="sec-no">1</span><h2>Mes compétences <small>brochage</small></h2><span class="sec-rule"></span></div>
+      <div class="plain"><span class="tag">EN CLAIR</span> Une puce électronique se branche avec des « pattes ». Ici, chaque patte est une compétence. Passe la souris (ou touche du doigt) sur une patte pour voir ce que je sais faire.</div>
+      <div class="pinout">
+        <figure class="fig">
+          <svg id="chip" viewBox="0 0 560 440" role="img" aria-label="Schéma de brochage : chaque broche est une compétence"></svg>
+          <figcaption>Fig. 1 — Brochage DIP-20, vue de dessus. Survole ou touche une broche.</figcaption>
+        </figure>
+        <div class="pin-info">
+          <table class="tbl" id="pinTable">
+            <thead><tr><th>Patte</th><th>Nom</th><th>Ce que je sais faire</th></tr></thead>
+            <tbody></tbody>
+          </table>
         </div>
+      </div>
+    </section>
 
-        <div class="demo chat-demo">
-          <div class="pipeline" id="pipeline">
-            <div class="step" data-step="0"><b>1</b>Crawl</div>
-            <div class="step" data-step="1"><b>2</b>Chunks</div>
-            <div class="step" data-step="2"><b>3</b>Score</div>
-            <div class="step" data-step="3"><b>4</b>Gemini</div>
-            <div class="step" data-step="4"><b>5</b>Réponse</div>
+    <!-- ===== 2. Schéma fonctionnel ===== -->
+    <section id="s2" class="sec">
+      <div class="sec-head"><span class="sec-no">2</span><h2>Ma méthode <small>schéma fonctionnel</small></h2><span class="sec-rule"></span></div>
+      <div class="plain"><span class="tag">EN CLAIR</span> Je travaille de deux façons. <b>Sur mes projets perso</b>, je suis le chef de projet : je décide quoi construire, comment, à quoi ça ressemble, et je vérifie le résultat. L'IA, elle, écrit le code selon mes instructions. <b>À l'université</b>, je n'utilise pas l'IA : j'écris tout le code moi-même. Clique sur l'interrupteur pour voir la différence.</div>
+
+      <div class="mode-switch" role="group" aria-label="Choisir le mode">
+        <span class="sw-label">MODE =</span>
+        <button class="sw on" data-mode="perso" aria-pressed="true">PROJETS PERSO</button>
+        <button class="sw" data-mode="uqam" aria-pressed="false">UNIVERSITÉ</button>
+        <span class="sw-state" id="swState">L'IA écrit le code, je dirige</span>
+      </div>
+
+      <figure class="fig block-fig" id="blockFig">
+        <svg viewBox="0 0 760 330" role="img" aria-label="Schéma fonctionnel : unité de contrôle et unité d'exécution">
+          <defs>
+            <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="currentColor"/></marker>
+            <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="currentColor" stroke-width="1.2" opacity=".35"/></pattern>
+          </defs>
+
+          <!-- Entrée -->
+          <g class="blk">
+            <rect x="20" y="135" width="120" height="60"/>
+            <text x="80" y="160" class="b-t">L'IDÉE</text>
+            <text x="80" y="178" class="b-s">un besoin</text>
+          </g>
+          <path class="wire" d="M140 165 H215" marker-end="url(#arr)"/>
+
+          <!-- Contrôle -->
+          <g class="blk ctrl">
+            <rect x="215" y="70" width="230" height="190"/>
+            <text x="330" y="96" class="b-t">MOI · LE CHEF DE PROJET</text>
+            <text x="330" y="114" class="b-s accent">je décide</text>
+            <text x="235" y="146" class="b-l">▸ quoi construire</text>
+            <text x="235" y="166" class="b-l">▸ comment l'organiser</text>
+            <text x="235" y="186" class="b-l">▸ à quoi ça ressemble</text>
+            <text x="235" y="206" class="b-l">▸ je teste et je valide</text>
+            <text x="235" y="236" class="b-l only-uqam accent">▸ j'écris tout le code</text>
+          </g>
+
+          <!-- IA -->
+          <g class="blk ai">
+            <rect x="540" y="30" width="190" height="110"/>
+            <rect x="540" y="30" width="190" height="110" class="hatch" fill="url(#hatch)"/>
+            <text x="635" y="58" class="b-t">L'IA · L'EXÉCUTANT</text>
+            <text x="635" y="76" class="b-s">elle suit mes consignes</text>
+            <text x="635" y="104" class="b-l c">écrit le code</text>
+            <text x="635" y="122" class="b-l c">corrige si je demande</text>
+            <text x="635" y="92" class="b-off">HORS CIRCUIT</text>
+          </g>
+          <path class="wire bus ai-wire" id="busOut" d="M445 95 H500 V65 H540" marker-end="url(#arr)"/>
+          <text x="492" y="56" class="w-l ai-wire">mes consignes</text>
+          <path class="wire bus ai-wire" id="busIn" d="M540 115 H510 V135 H445" marker-end="url(#arr)"/>
+          <text x="492" y="152" class="w-l ai-wire">code à vérifier</text>
+
+          <!-- Sortie -->
+          <path class="wire" d="M445 220 H560" marker-end="url(#arr)"/>
+          <g class="blk">
+            <rect x="560" y="190" width="170" height="60"/>
+            <text x="645" y="215" class="b-t">LE RÉSULTAT</text>
+            <text x="645" y="233" class="b-s">un logiciel qui marche</text>
+          </g>
+
+          <!-- Broche MODE -->
+          <path class="wire thin" d="M330 300 V260"/>
+          <text x="330" y="318" class="w-l">INTERRUPTEUR</text>
+
+          <!-- Signaux animés -->
+          <circle r="4" class="sig ai-wire"><animateMotion dur="2.2s" repeatCount="indefinite"><mpath href="#busOut"/></animateMotion></circle>
+          <circle r="4" class="sig ai-wire"><animateMotion dur="2.2s" begin="1.1s" repeatCount="indefinite"><mpath href="#busIn"/></animateMotion></circle>
+        </svg>
+        <figcaption>Fig. 2 — Schéma fonctionnel. L'IA ne prend aucune décision : elle exécute.</figcaption>
+      </figure>
+    </section>
+
+    <!-- ===== 3. Banc d'essai ===== -->
+    <section id="s3" class="sec">
+      <div class="sec-head"><span class="sec-no">3</span><h2>Essaie-moi <small>banc d'essai</small></h2><span class="sec-rule"></span></div>
+      <div class="plain"><span class="tag">EN CLAIR</span> Choisis une idée de projet ci-dessous. Je te montre comment je m'y prendrais, étape par étape : ce que je décide moi-même, et ce que je confie à l'IA.</div>
+
+      <div class="bench">
+        <div class="bench-in">
+          <p class="bench-label">ENTRÉE › choisis un projet</p>
+          <div class="bench-btns" id="benchBtns">
+            <button data-p="resto" class="on"><b>🍝 Un site pour un restaurant</b><span>menu, horaires, réservations</span></button>
+            <button data-p="rdv"><b>✂️ La prise de rendez-vous d'un salon</b><span>agenda en ligne, rappels</span></button>
+            <button data-p="garage"><b>🔧 Un chatbot pour un garage</b><span>répondre aux clients 24 h/24</span></button>
           </div>
-          <div class="chat-window">
-            <div class="chat-head"><span class="avatar">🥐</span><div><b>Boulangerie Démo</b><small>répond à partir de son site</small></div></div>
-            <div class="chat-log" id="chatLog">
-              <div class="msg bot">Bonjour ! Pose-moi une question sur la boulangerie 👇</div>
-            </div>
-            <div class="chunks" id="chunks"></div>
-            <div class="chat-suggest" id="chatSuggest">
-              <button data-q="0">Quels sont vos horaires ?</button>
-              <button data-q="1">Prix d'un gâteau d'anniversaire ?</button>
-              <button data-q="2">Vous livrez à Laval ?</button>
-            </div>
+        </div>
+        <div class="bench-out">
+          <p class="bench-label">SORTIE › mon plan <span id="benchTime"></span></p>
+          <ol class="bench-steps" id="benchSteps"></ol>
+          <p class="bench-tools" id="benchTools"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 4. Circuits d'application ===== -->
+    <section id="s4" class="sec">
+      <div class="sec-head"><span class="sec-no">4</span><h2>Mes projets <small>circuits d'application</small></h2><span class="sec-rule"></span></div>
+      <div class="plain"><span class="tag">EN CLAIR</span> Ce que j'ai construit. Les trois premiers projets sont jouables directement ici : clique, tape, teste.</div>
+
+      <!-- 4.1 Chatbot -->
+      <article class="app">
+        <div class="app-head">
+          <h3><span>4.1</span> Novyxs, un chatbot IA pour les entreprises</h3>
+          <span class="badge">MODE = PERSO · dirigé par moi, codé avec l'IA</span>
+        </div>
+        <div class="app-grid">
+          <div class="app-text">
+            <div class="plain"><span class="tag">EN CLAIR</span> Un assistant qui répond aux questions des clients sur le site d'un commerce, 24 h sur 24, à partir des vraies infos du commerce. Il ne raconte pas n'importe quoi : s'il ne sait pas, il le dit.</div>
+            <p><b>Comment ça marche :</b> l'entreprise a deux façons de nourrir son chatbot. Elle peut écrire elle-même ses <b>questions et réponses</b>, qui passent toujours en priorité. Et elle peut donner l'adresse de son site : mon programme le lit, le découpe en petits morceaux et garde les plus utiles pour chaque question. L'IA (Gemini) répond ensuite uniquement avec ces informations.</p>
+            <p>L'entreprise a aussi un tableau de bord pour voir les conversations et les avis des clients 👍/👎. Le chatbot est en ligne : <b>c'est lui qui répond dans la bulle 💬 en bas à droite de cette page.</b></p>
+            <p class="stack">Node.js · Express 5 · Cheerio · Gemini · JSONL · JS</p>
           </div>
-          <p class="demo-note">Démo simulée dans le navigateur, qui reproduit le pipeline du vrai serveur.</p>
+          <figure class="fig demo">
+            <div class="scope">
+              <div class="scope-steps" id="steps"><span>Q&amp;R</span><span>SITE</span><span>TRIER</span><span>IA</span><span>RÉPONSE</span></div>
+              <div class="scope-log" id="chatLog"><div class="ln sys">&gt; Démo : chatbot d'une boulangerie. Clique sur une question ↓</div></div>
+              <div class="scope-btns" id="chatBtns">
+                <button data-q="0">Quels sont vos horaires ?</button>
+                <button data-q="1">Prix d'un gâteau ?</button>
+                <button data-q="2">Vous livrez à Laval ?</button>
+              </div>
+            </div>
+            <figcaption>Fig. 4.1 — Démo : on voit chaque étape, de la lecture du site jusqu'à la réponse.</figcaption>
+          </figure>
         </div>
       </article>
 
-      <div class="grid-2">
-        <!-- Tengwar -->
-        <article class="project reveal">
-          <div class="tag-row"><span class="pill">Java · POO</span><span class="pill">INF2120</span><span class="pill pill-solo">100 % codé par moi</span></div>
-          <h3>Traducteur Quenya → Tengwar</h3>
-          <p>Translittération de la langue elfique de Tolkien vers l'alphabet Tengwar en commandes LaTeX. Un <code>enum</code> de 51 glyphes, une recherche <strong>gloutonne</strong> (3, puis 2, puis 1 caractère), la gestion des voyelles initiales (TELCO / ARA) et une exception métier <code>PasDuQuenyaException</code>.</p>
-          <div class="demo tengwar-demo">
-            <label for="quenya">Tape un mot en Quenya :</label>
-            <div class="input-row">
-              <input id="quenya" value="ELEN" autocomplete="off" spellcheck="false">
-              <div class="examples"><button>NAMARIE</button><button>ANAR</button><button>TELPE</button><button>hello</button></div>
-            </div>
-            <div class="tokens" id="tokens"></div>
-            <pre class="latex" id="latex"></pre>
-          </div>
-          <div class="stack"><span>Java</span><span>Enum</span><span>Exceptions</span><span>LaTeX</span></div>
-        </article>
-
-        <!-- Hanoi / RISC-V -->
-        <article class="project reveal">
-          <div class="tag-row"><span class="pill">RISC-V</span><span class="pill">INF2171</span><span class="pill pill-solo">100 % codé par moi</span></div>
-          <h3>Assembleur RISC-V</h3>
-          <p>Programmation au plus près du processeur dans RARS : pile et conventions d'appel, récursion, chaînes, tableaux, manipulation de bits, virgule flottante. Ici, les tours de Hanoï, écrites en assembleur avec prologue/épilogue et sauvegarde des registres <code>s0–s3</code>.</p>
-          <div class="demo hanoi-demo">
-            <div class="hanoi" id="hanoi"><div class="peg"></div><div class="peg"></div><div class="peg"></div></div>
-            <div class="hanoi-ctrl">
-              <button id="hanoiRun" class="btn btn-small">▶ Exécuter <code>jal hanoi</code></button>
-              <label>Disques <input type="range" id="hanoiN" min="2" max="6" value="4"><span id="hanoiNv">4</span></label>
-            </div>
-            <pre class="hanoi-log" id="hanoiLog">; prêt, a0 = 4</pre>
-          </div>
-          <div class="stack"><span>RISC-V</span><span>RARS</span><span>Récursion</span><span>Pile</span></div>
-        </article>
-      </div>
-
-      <div class="grid-2">
-        <!-- SQL -->
-        <article class="project reveal">
-          <div class="tag-row"><span class="pill">SQL · Oracle</span><span class="pill">INF3080</span><span class="pill pill-solo">100 % codé par moi</span></div>
-          <h3>Base de données d'une résidence pour aînés</h3>
-          <p>De la conception à l'implémentation : modèle conceptuel (MCD), passage au logique (MLD), normalisation, puis schéma Oracle complet. <strong>17 tables</strong> (aînés, chambres, préposés internes/externes, quarts de travail, activités, paiements…), séquences et <strong>triggers</strong> pour générer les identifiants.</p>
-          <div class="schema" aria-hidden="true">
-            <div class="tbl t1"><b>AINE</b><span>#id_aine</span><span>nom</span><span>autonomie</span></div>
-            <div class="tbl t2"><b>CHAMBRE</b><span>#no_chambre</span><span>etage</span></div>
-            <div class="tbl t3"><b>PREPOSE</b><span>#matricule</span><span>matricule_chef</span></div>
-            <div class="tbl t4"><b>QUART_TRAVAIL</b><span>#id_quart</span><span>debut · fin</span></div>
-            <svg class="links" viewBox="0 0 400 200" preserveAspectRatio="none"><path d="M95 60 C 160 60, 160 40, 240 40"/><path d="M95 70 C 170 90, 170 150, 240 150"/><path d="M300 70 L300 125"/></svg>
-          </div>
-          <div class="stack"><span>Oracle</span><span>SQL Developer</span><span>MCD / MLD</span><span>Triggers</span></div>
-        </article>
-
-        <!-- Java POO -->
-        <article class="project reveal">
-          <div class="tag-row"><span class="pill">Java</span><span class="pill">Fondamentaux</span><span class="pill pill-solo">100 % codé par moi</span></div>
-          <h3>Exercices de conception objet</h3>
-          <p>Une série de petits programmes pour bien maîtriser la POO : <strong>héritage</strong> (Véhicule → Voiture / Moto, Employé → Manager / Développeur), <strong>génériques</strong> avec un <code>Conteneur&lt;T&gt;</code>, et des objets mathématiques (<code>Force2D</code>, <code>Rectangle</code>, égalité).</p>
-          <pre class="code"><span class="k">public class</span> <span class="t">Conteneur</span>&lt;<span class="t">T</span>&gt; {
-  <span class="k">private</span> <span class="t">T</span> valeur;
-  <span class="k">public</span> <span class="t">T</span> <span class="f">get</span>() { <span class="k">return</span> valeur; }
-}
-
-<span class="t">Employe</span> e = <span class="k">new</span> <span class="t">Manager</span>(<span class="s">"Amine"</span>);
-e.<span class="f">salaire</span>(); <span class="c">// polymorphisme ✨</span></pre>
-          <div class="stack"><span>Héritage</span><span>Génériques</span><span>Polymorphisme</span><span>IntelliJ</span></div>
-        </article>
-      </div>
-    </section>
-
-    <!-- ================= METHODE ================= -->
-    <section id="methode" class="section">
-      <div class="section-head reveal">
-        <p class="kicker">02 — Ma façon de travailler</p>
-        <h2>Je dirige, l'IA code</h2>
-        <p>Sur mes projets perso, je travaille avec l'IA comme avec une équipe de développement. Sur mes projets universitaires, je code tout moi-même.</p>
-      </div>
-
-      <div class="method">
-        <div class="method-col reveal spot">
-          <p class="method-label">Projets perso</p>
-          <h3>Je pilote les sessions IA</h3>
-          <div class="roles">
-            <div class="role me">
-              <b>Moi</b>
-              <ul>
-                <li>L'idée, le besoin, le produit</li>
-                <li>L'architecture et les choix techniques</li>
-                <li>Le design et l'expérience utilisateur</li>
-                <li>Les priorités, les tests et la validation</li>
-              </ul>
-            </div>
-            <div class="role ai">
-              <b>L'IA</b>
-              <ul>
-                <li>L'écriture du code</li>
-                <li>Les itérations rapides selon mes consignes</li>
-              </ul>
-            </div>
-          </div>
-          <p class="method-note">Exemples : le ChatBot IA, ce portfolio.</p>
+      <!-- 4.2 Tengwar -->
+      <article class="app">
+        <div class="app-head">
+          <h3><span>4.2</span> Traducteur Quenya → Tengwar</h3>
+          <span class="badge solid">MODE = UQAM · 100 % codé par moi</span>
         </div>
-
-        <div class="method-col solo reveal spot">
-          <p class="method-label">Projets universitaires</p>
-          <h3>100 % codé par moi</h3>
-          <p>Pour les cours de l'UQAM, j'écris tout le code moi-même, de la première ligne à la dernière : Java, assembleur RISC-V, SQL. C'est là que je construis mes fondamentaux.</p>
-          <div class="solo-list">
-            <span>INF2120 · Java</span><span>INF2171 · RISC-V</span><span>INF3080 · SQL</span><span>INF1070 · Shell</span>
+        <div class="app-grid">
+          <div class="app-text">
+            <div class="plain"><span class="tag">EN CLAIR</span> Tu tapes un mot en elfique (la langue inventée par Tolkien dans <i>Le Seigneur des anneaux</i>) et le programme l'écrit avec l'alphabet elfique, lettre par lettre.</div>
+            <p>Un travail pratique du cours de Programmation II, écrit en Java. Le programme reconnaît les 51 lettres de l'alphabet et repère les erreurs : un mot qui n'est pas de l'elfique est refusé.</p>
+            <p>La démo est la copie exacte de mon programme, refaite pour le navigateur. Essaie <b>hello</b> pour voir l'erreur.</p>
+            <p class="stack">Java · Enum · Exceptions · LaTeX</p>
           </div>
-          <p class="method-note">C'est aussi ce qui me permet de relire, comprendre et corriger le code que l'IA produit.</p>
+          <figure class="fig demo">
+            <div class="tw">
+              <div class="tw-in"><span>ENTRÉE&nbsp;›</span><input id="quenya" value="NAMARIE" autocomplete="off" spellcheck="false" aria-label="Mot en Quenya"></div>
+              <div class="tw-ex"><button>ELEN</button><button>ANAR</button><button>TELPE</button><button>hello</button></div>
+              <table class="tbl tw-tbl"><thead><tr><th>#</th><th>Lettres</th><th>Lettre elfique</th><th>Code</th></tr></thead><tbody id="twBody"></tbody></table>
+              <pre class="tw-out" id="twOut"></pre>
+            </div>
+            <figcaption>Fig. 4.2 — Chaque ligne = un morceau du mot et sa lettre elfique.</figcaption>
+          </figure>
         </div>
-      </div>
-    </section>
+      </article>
 
-    <!-- ================= COMPETENCES ================= -->
-    <section id="competences" class="section">
-      <div class="section-head reveal">
-        <p class="kicker">03 — Compétences</p>
-        <h2>Ma boîte à outils</h2>
-        <p>De la machine jusqu'au web, avec un faible pour l'IA appliquée.</p>
-      </div>
-      <div class="skills">
-        <div class="skill-card reveal spot"><div class="ico">⌘</div><h4>Langages</h4><p>Java, JavaScript (ES modules), SQL, assembleur RISC-V, HTML / CSS, Bash</p></div>
-        <div class="skill-card reveal spot"><div class="ico">⚙</div><h4>Back-end</h4><p>Node.js, Express, API REST, authentification, rate-limiting, scraping avec Cheerio</p></div>
-        <div class="skill-card reveal spot"><div class="ico">✦</div><h4>IA appliquée</h4><p>Pilotage de sessions de développement avec l'IA, intégration de LLM (Gemini, SDK OpenAI), RAG, prompt engineering, garde-fous</p></div>
-        <div class="skill-card reveal spot"><div class="ico">▦</div><h4>Données</h4><p>Oracle, SQL Developer, modélisation MCD / MLD, normalisation, triggers, algèbre relationnelle</p></div>
-        <div class="skill-card reveal spot"><div class="ico">◎</div><h4>Systèmes</h4><p>Linux, shell, expressions régulières, organisation des ordinateurs, mémoire et adressage</p></div>
-        <div class="skill-card reveal spot"><div class="ico">⎇</div><h4>Outils</h4><p>Git / GitLab, IntelliJ IDEA, WebStorm, VS Code, Visual Paradigm (UML), VirtualBox</p></div>
-      </div>
-    </section>
-
-    <!-- ================= PARCOURS ================= -->
-    <section id="parcours" class="section">
-      <div class="section-head reveal">
-        <p class="kicker">04 — Parcours</p>
-        <h2>Ce que j'apprends</h2>
-      </div>
-      <ol class="timeline">
-        <li class="reveal"><span class="when">UQAM</span><div><h4>Baccalauréat en informatique</h4><p>Formation en cours : programmation, systèmes, architecture des ordinateurs, bases de données.</p></div></li>
-        <li class="reveal"><span class="when">INF2120</span><div><h4>Programmation II</h4><p>POO avancée en Java : héritage, génériques, exceptions, énumérations.</p></div></li>
-        <li class="reveal"><span class="when">INF2171</span><div><h4>Organisation des ordinateurs et assembleur</h4><p>Arithmétique binaire, RISC-V, mémoire, modes d'adressage, conventions d'appel.</p></div></li>
-        <li class="reveal"><span class="when">INF1070</span><div><h4>Utilisation et administration des systèmes</h4><p>Shell Unix, fichiers et permissions, expressions régulières.</p></div></li>
-        <li class="reveal"><span class="when">INF3080</span><div><h4>Bases de données</h4><p>Conception MCD / MLD / MPD, SQL (LDD et LMD), normalisation, Oracle.</p></div></li>
-        <li class="reveal"><span class="when">En parallèle</span><div><h4>Projets perso, dirigés avec l'IA</h4><p>ChatBot IA multi-entreprises et ce portfolio : je fixe la vision et l'architecture, je pilote les sessions, l'IA écrit le code.</p></div></li>
-      </ol>
-    </section>
-
-    <!-- ================= CONTACT ================= -->
-    <section id="contact" class="section contact reveal">
-      <div class="contact-card spot">
-        <p class="kicker">05 — Contact</p>
-        <h2>On construit quelque chose&nbsp;?</h2>
-        <p>Stage, projet, collaboration ou simple question : je suis ouvert aux opportunités.</p>
-        <div class="hero-cta">
-          <a class="btn btn-primary" href="https://github.com/Aminemelh" target="_blank" rel="noopener">GitHub · Aminemelh <span>↗</span></a>
+      <!-- 4.3 Hanoi -->
+      <article class="app">
+        <div class="app-head">
+          <h3><span>4.3</span> Programmer au plus près du processeur</h3>
+          <span class="badge solid">MODE = UQAM · 100 % codé par moi</span>
         </div>
+        <div class="app-grid">
+          <div class="app-text">
+            <div class="plain"><span class="tag">EN CLAIR</span> L'assembleur, c'est le langage le plus proche de la machine : on donne au processeur ses instructions une par une. C'est difficile, mais ça permet de comprendre comment un ordinateur fonctionne vraiment.</div>
+            <p>Dans ce cours, j'ai écrit des programmes en assembleur RISC-V. La démo montre un classique, les <b>tours de Hanoï</b> : déplacer toute la pile de disques vers la droite, sans jamais poser un grand disque sur un petit. Clique sur « Lancer » pour voir l'ordinateur résoudre le casse-tête.</p>
+            <p class="stack">RISC-V · RARS · Récursion · Pile</p>
+          </div>
+          <figure class="fig demo">
+            <div class="hanoi-wrap">
+              <svg id="hanoi" viewBox="0 0 360 150" aria-label="Tours de Hanoï"></svg>
+              <div class="hanoi-ctrl">
+                <button id="hanoiRun" class="cmd">▶ Lancer</button>
+                <label>Disques : <input type="range" id="hanoiN" min="2" max="6" value="4"> <b id="hanoiNv">4</b></label>
+                <span class="regs" title="Adresse de la pile (registre sp) : elle descend à chaque appel récursif">pile : <b id="sp">0x7fffeff0</b></span>
+              </div>
+              <pre class="hanoi-log" id="hanoiLog"></pre>
+            </div>
+            <figcaption>Fig. 4.3 — Le texte en bas est exactement ce qu'affiche mon programme.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <!-- 4.4 / 4.5 -->
+      <div class="app-pair">
+        <article class="app">
+          <div class="app-head"><h3><span>4.4</span> Base de données d'une résidence pour aînés</h3><span class="badge solid">MODE = UQAM</span></div>
+          <p>J'ai conçu toute la base de données d'une résidence pour personnes âgées : les résidents, les chambres, le personnel, les horaires, les paiements… 17 tableaux reliés entre eux, du plan sur papier jusqu'à la vraie base Oracle.</p>
+          <svg class="er" viewBox="0 0 340 120" aria-hidden="true">
+            <g class="ent"><rect x="5" y="10" width="90" height="44"/><text x="50" y="27">AINE</text><text x="50" y="44" class="k">#id_aine</text></g>
+            <g class="ent"><rect x="125" y="66" width="90" height="44"/><text x="170" y="83">CHAMBRE</text><text x="170" y="100" class="k">#no_chambre</text></g>
+            <g class="ent"><rect x="245" y="10" width="90" height="44"/><text x="290" y="27">PREPOSE</text><text x="290" y="44" class="k">#matricule</text></g>
+            <path d="M95 32 H245"/><path d="M50 54 V88 H125"/><text x="170" y="26" class="card">0,N — 1,N</text>
+          </svg>
+          <p class="stack">Oracle · SQL Developer · MCD / MLD · Triggers</p>
+        </article>
+        <article class="app">
+          <div class="app-head"><h3><span>4.5</span> Conception orientée objet</h3><span class="badge solid">MODE = UQAM</span></div>
+          <p>Des exercices en Java pour bien organiser un programme. L'idée : un Manager et un Développeur sont tous les deux des Employés, donc ils partagent ce qu'ils ont en commun au lieu de tout réécrire. Pareil pour Voiture et Moto, qui sont des Véhicules.</p>
+          <svg class="uml" viewBox="0 0 340 120" aria-hidden="true">
+            <g class="ent"><rect x="120" y="6" width="100" height="30"/><text x="170" y="26">Employe</text></g>
+            <g class="ent"><rect x="30" y="82" width="100" height="30"/><text x="80" y="102">Manager</text></g>
+            <g class="ent"><rect x="210" y="82" width="100" height="30"/><text x="260" y="102">Developpeur</text></g>
+            <path d="M80 82 V60 H260 V82"/><path d="M170 60 V46"/><path d="M162 46 L170 36 L178 46 Z" class="tri"/>
+          </svg>
+          <p class="stack">Héritage · Génériques · Polymorphisme · IntelliJ</p>
+        </article>
       </div>
     </section>
-  </main>
 
-  <footer class="footer">
-    <span>© <span id="year"></span> Amine Meliouh</span>
-    <span>Conçu et dirigé par moi, codé avec l'IA. HTML, CSS et JS, sans framework.</span>
-  </footer>
+    <!-- ===== 5. Chronogramme ===== -->
+    <section id="s5" class="sec">
+      <div class="sec-head"><span class="sec-no">5</span><h2>Mon parcours <small>chronogramme</small></h2><span class="sec-rule"></span></div>
+      <div class="plain"><span class="tag">EN CLAIR</span> Une ligne du temps. Quand la ligne monte, c'est que je suis en train de suivre ce cours ou de faire ce projet. Le violet, c'est mon projet perso avec l'IA.</div>
+      <figure class="fig">
+        <div class="timing-wrap"><svg id="timing" viewBox="0 0 760 300" role="img" aria-label="Chronogramme du parcours"></svg></div>
+        <figcaption>Fig. 5 — Parcours de l'été 2025 à l'automne 2026.</figcaption>
+      </figure>
+    </section>
+
+    <!-- ===== 6. Informations de commande ===== -->
+    <section id="s6" class="sec">
+      <div class="sec-head"><span class="sec-no">6</span><h2>Me contacter <small>informations de commande</small></h2><span class="sec-rule"></span></div>
+      <div class="order">
+        <table class="tbl">
+          <thead><tr><th>Je cherche</th><th>Je travaille</th><th>Où me trouver</th></tr></thead>
+          <tbody><tr>
+            <td>Un stage, un projet ou une collaboration</td>
+            <td>En équipe ou seul</td>
+            <td><a class="link" href="https://github.com/Aminemelh" target="_blank" rel="noopener">github.com/Aminemelh ↗</a></td>
+          </tr></tbody>
+        </table>
+        <a class="order-btn" href="https://github.com/Aminemelh" target="_blank" rel="noopener">Me contacter →</a>
+      </div>
+
+      <h3 class="rev-title">Historique des révisions</h3>
+      <table class="tbl rev">
+        <thead><tr><th>Rév.</th><th>Date</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td>1.0</td><td>11/2026</td><td>Version « vitrine sombre ». <a class="link" href="v1/index.html">Voir la rév. 1.0 →</a></td></tr>
+          <tr><td>2.0</td><td>11/2026</td><td>Passage au format fiche technique. Ajout du mode UQAM.</td></tr>
+          <tr><td>2.1</td><td>11/2026</td><td>Ajout des encadrés « En clair » pour que tout le monde puisse lire.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <footer class="doc-foot">
+      <span>AM-26 · Amine Meliouh</span>
+      <span>Les spécifications peuvent évoluer sans préavis, surtout après un nouveau cours.</span>
+      <span>Conçu et dirigé par moi · codé avec l'IA</span>
+    </footer>
+  </div>
 
   <script src="js/tengwar.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/datasheet.js"></script>
+
+  <!-- Chatbot Novyxs -->
+  <script>
+    window.CHATBOT_API_URL = "https://chatbot-production-3a9d.up.railway.app/chat";
+    window.CHATBOT_COMPANY_ID = "Amine";
+  </script>
+  <script src="https://chatbot-production-3a9d.up.railway.app/chatbot.js"></script>
+  <!-- /Chatbot Novyxs -->
 </body>
 </html>
